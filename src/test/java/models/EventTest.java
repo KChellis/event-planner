@@ -80,4 +80,11 @@ public class EventTest {
         testEvent.setFoodMap();
         assertEquals(false, testEvent.getFoodMap().isEmpty());
     }
+
+    @Test
+    public void setBeverageMap_addsValuesToBeverageMap_false() {
+        Event testEvent = new Event(50,"full dinner", "open bar", "DJ");
+        testEvent.setBeverageMap();
+        assertEquals(false, testEvent.getBeverageMap().isEmpty());
+    }
 }

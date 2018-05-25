@@ -14,7 +14,7 @@ public class Event {
     private int entertainmentCost;
     private int totalCost;
     private Map<Integer, String> foodMap = new HashMap<Integer, String>();
-
+    private Map<Integer, String> beverageMap = new HashMap<Integer, String>();
 
     public Event(int guests, String food, String beverage, String entertainment) {
         this.guests = guests;
@@ -126,5 +126,15 @@ public class Event {
         foodMap.put(4, "buffet dinner" );
         foodMap.put(5, "full dinner" );
         foodMap.put(6, "dinner and apps" );
+    }
+
+    public Map<Integer, String> getBeverageMap() {
+        return beverageMap;
+    }
+
+    public void setBeverageMap(){
+        beverageMap.put(1, "no alcohol" );
+        beverageMap.put(2, "beer and wine" );
+        beverageMap.put(3, "open bar" );
     }
 }
