@@ -7,14 +7,42 @@ import java.io.InputStreamReader;
 public class App {
     public static void main(String[] args) {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        Event wedding = new Event();
+        wedding.setGuests(75);
+        wedding.setFood("Full Dinner");
+        wedding.setBeverage("Beer and Wine Open");
+        wedding.setEntertainment("DJ");
+        wedding.setFoodCost();
+        wedding.setBeverageCost();
+        wedding.setEntertainmentCost();
+        wedding.setTotalCost();
+        Event birthday = new Event();
+        birthday.setGuests(30);
+        birthday.setFood("Hors D'oevres");
+        birthday.setBeverage("Open Bar");
+        birthday.setEntertainment("Use Own Music");
+        birthday.setFoodCost();
+        birthday.setBeverageCost();
+        birthday.setEntertainmentCost();
+        birthday.setTotalCost();
+        Event reunion = new Event();
+        reunion.setGuests(100);
+        reunion.setFood("Buffet Dinner");
+        reunion.setBeverage("Full bar");
+        reunion.setEntertainment("DJ");
+        reunion.setFoodCost();
+        reunion.setBeverageCost();
+        reunion.setEntertainmentCost();
+        reunion.setTotalCost();
+        Event userEvent = new Event();
         boolean programRunning = true;
+        boolean chosePackage = false;
         System.out.println("Hello! Welcome to the Event Planner!");
         while(programRunning) {
             try{
-                System.out.println("Would you like to plan an event? Y?N");
+                System.out.println("Would you like to plan a custom event or choose from one of our preset packages? Enter 'Custom' 'Preset' or 'Exit");
                 String eventPlanning = bufferedReader.readLine().toLowerCase();
-                if (eventPlanning.equals("y")){
-                    Event userEvent = new Event();
+                if (eventPlanning.equals("Custom")){
                     userEvent.setFoodMap();
                     userEvent.setBeverageMap();
                     userEvent.setEntertainmentMap();
@@ -104,6 +132,55 @@ public class App {
                             System.out.println("I'm sorry that is not a valid option");
                         }
                     }
+
+
+                }else if (eventPlanning.equals("preset")) {
+                    System.out.println("We offer 3 preset packages:");
+                    System.out.println("Our wedding package accommodates 75 guests. It offers a full sit down dinner with three entree options: Beef Wellington, Honey Ginger Salmon, and Ratatouille. Our open beer and wine package and the DJ are also included");
+                    System.out.println(String.format("Total Cost: $%d", wedding.getTotalCost()));
+                    System.out.println("Our birthday package accommodates 30 guests. It offers Hors D'oevres service, an open bar and access to our sound system to play your own music");
+                    System.out.println(String.format("Total Cost: $%d", birthday.getTotalCost()));
+                    System.out.println("Our reunion package accommodates 100 guests. It offers a buffet dinner, a full bar with 2 alcoholic drinks per person(non alcoholic drinks are unlimited), and a live band");
+                    System.out.println(String.format("Total Cost: $%d", reunion.getTotalCost()));
+
+                    boolean choosingPackage = true;
+                    while(choosingPackage){
+                        System.out.println("Which package would you like? Enter 'wedding' 'birthday' 'reunion' or 'back'");
+                        String userOption = bufferedReader.readLine().toLowerCase();
+                        if(userOption.equals("wedding")){
+                            userEvent = wedding;
+                            choosingPackage = false;
+                            chosePackage = true;
+                        }else if(userOption.equals("birthday")){
+                            userEvent = birthday;
+                            choosingPackage = false;
+                            chosePackage = true;
+                        }else if(userOption.equals("reunion")){
+                            userEvent = reunion;
+                            choosingPackage = false;
+                            chosePackage = true;
+                        }else if(userOption.equals("back")){
+                            choosingPackage = false;
+                        }else {
+                            System.out.println("I'm sorry that is not a valid option");
+                        }
+                    }
+                    if(chosePackage){
+
+                    }
+
+
+
+
+
+                }else if (eventPlanning.equals("exit")) {
+                    System.out.println("Okay, thanks for visiting. Goodbye.");
+                    programRunning = false;
+                }else{
+                    System.out.println("I'm sorry that is not a valid option");
+                }
+
+                if(chosePackage){
                     boolean checkingCoupon = true;
                     String couponCode=null;
                     while(checkingCoupon){
@@ -112,7 +189,7 @@ public class App {
                         if (hasCoupon.equals("y")){
                             boolean couponing = true;
                             while(couponing){
-                                System.out.println("Please enter coupon code or 'back' to continue without enter coupon");
+                                System.out.println("Please enter coupon code or 'back' to continue without entering coupon");
                                 couponCode = bufferedReader.readLine().toLowerCase();
                                 if(couponCode.equals("20%off") || couponCode.equals("1000off") || couponCode.equals("back") ){
                                     couponing = false;
@@ -155,15 +232,6 @@ public class App {
                             System.out.println("Please enter Y or N");
                         }
                     }
-
-
-
-
-                }else if (eventPlanning.equals("n")) {
-                    System.out.println("Okay, thanks for visiting. Goodbye.");
-                    programRunning = false;
-                }else{
-                    System.out.println("I didn't understand that input");
                 }
             }catch(IOException e){
                 e.printStackTrace();
