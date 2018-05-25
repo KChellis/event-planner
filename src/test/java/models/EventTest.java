@@ -26,8 +26,9 @@ public class EventTest {
     }
 
     @Test
-    public void newEvent_getsBeverage_openbar() {
+    public void setBeverage_getsBeverage_openbar() {
         Event testEvent = new Event();
+        testEvent.setBeverage("open bar");
         assertEquals("open bar",  testEvent.getBeverage());
     }
 
