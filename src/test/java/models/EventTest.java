@@ -87,4 +87,11 @@ public class EventTest {
         testEvent.setBeverageMap();
         assertEquals(false, testEvent.getBeverageMap().isEmpty());
     }
+
+    @Test
+    public void setEntertainmentMap_addsValuesToEntertainmentMap_false() {
+        Event testEvent = new Event(50,"full dinner", "open bar", "DJ");
+        testEvent.setEntertainmentMap();
+        assertEquals(false, testEvent.getEntertainmentMap().isEmpty());
+    }
 }
