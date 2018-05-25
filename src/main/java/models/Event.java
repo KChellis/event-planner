@@ -2,6 +2,7 @@ package models;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class Event {
     private int guests;
@@ -175,5 +176,10 @@ public class Event {
         }else {
             totalCost -= 1000;
         }
+    }
+
+    public Integer generateNumber(int min, int max){
+        Random random = new Random();
+        return random.nextInt(max + 1 - min) + min;
     }
 }

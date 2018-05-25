@@ -38,18 +38,18 @@ public class App {
         reunion.setEntertainmentCost();
         reunion.setTotalCost();
         Event userEvent = new Event();
+        userEvent.setFoodMap();
+        userEvent.setBeverageMap();
+        userEvent.setEntertainmentMap();
         boolean programRunning = true;
         boolean chosePackage = false;
-        System.out.println("Hello! Welcome to the Event Planner!");
+        System.out.println("Hello! Welcome to the Fancy Schmancy Event Planner!");
         while(programRunning) {
             try{
-                System.out.println("Would you like to plan a custom event or choose from one of our preset packages? Enter 'Custom' 'Preset' or 'Exit");
+                System.out.println("Would you like to plan a custom event, choose from one of our preset packages or see a randomly generated event? Enter 'Custom' 'Preset' 'Random' or 'Exit");
                 String eventPlanning = bufferedReader.readLine().toLowerCase();
                 if (eventPlanning.equals("custom")){
                     chosePackage = true;
-                    userEvent.setFoodMap();
-                    userEvent.setBeverageMap();
-                    userEvent.setEntertainmentMap();
                     System.out.println("Great! I'll just ask you a few questions about what your event.");
                     boolean settingGuests = true;
                     while(settingGuests){
@@ -172,6 +172,18 @@ public class App {
                         }
                     }
 
+
+                }else if (eventPlanning.equals("random")) {
+
+                    userEvent.setGuests(100);
+                    userEvent.setFood("Buffet Dinner");
+                    userEvent.setBeverage("Full bar");
+                    userEvent.setEntertainment("DJ");
+                    userEvent.setVenueCost();
+                    userEvent.setFoodCost();
+                    userEvent.setBeverageCost();
+                    userEvent.setEntertainmentCost();
+                    userEvent.setTotalCost();
 
                 }else if (eventPlanning.equals("exit")) {
                     System.out.println("Okay, thanks for visiting. Goodbye.");

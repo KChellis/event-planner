@@ -141,4 +141,10 @@ public class EventTest {
         testEvent.useCoupon("$1000off");
         assertEquals(5000,  testEvent.getTotalCost());
     }
+
+    @Test
+    public void generateNumber_returnsInt_true() {
+        Event testEvent = new Event();
+        assertEquals(true, testEvent.generateNumber(0, 300) instanceof Integer);
+    }
 }
