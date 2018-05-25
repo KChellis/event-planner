@@ -17,15 +17,13 @@ public class Event {
     private Map<Integer, String> beverageMap = new HashMap<Integer, String>();
     private Map<Integer, String> entertainmentMap = new HashMap<Integer, String>();
 
-    public Event(int guests, String food, String beverage, String entertainment) {
-        this.guests = guests;
-        this.food = food;
-        this.beverage = beverage;
-        this.entertainment = entertainment;
-    }
 
     public int getGuests() {
         return guests;
+    }
+
+    public void setGuests(int guests) {
+        this.guests = guests;
     }
 
     public String getFood() {

@@ -6,8 +6,8 @@ public class App {
     public static void main(String[] args) {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         boolean programRunning = true;
-        int userGuests;
-        int userFoodOption;
+        int userGuests = 0;
+        String userFoodOption;
         int userBeverageOption;
         int userEntertainment;
         System.out.println("Hello! Welcome to the Event Planner!");
@@ -31,7 +31,7 @@ public class App {
                     boolean settingFood = true;
                     while(settingFood){
                         System.out.println("We have a number of catering options to choose from:");
-                        userFoodOption = bufferedReader.readLine());
+                        userFoodOption = bufferedReader.readLine();
                         if(userGuests > 0 && userGuests < 200){
                             System.out.println(String.format("%d guests. Got it!"));
                             settingGuests = false;
