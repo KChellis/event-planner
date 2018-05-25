@@ -71,4 +71,18 @@ public class Event {
             foodCost = guests * 50;
         }
     }
+
+    public int getBeverageCost() {
+        return beverageCost;
+    }
+
+    public void setBeverageCost(){
+        if(beverage.equals("no alcohol")){
+            beverageCost = guests * 10;
+        }else if (beverage.equals("beer and wine")){
+            beverageCost = guests * 25;
+        }else {
+            beverageCost = guests * 50;
+        }
+    }
 }
