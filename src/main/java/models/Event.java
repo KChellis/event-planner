@@ -113,6 +113,8 @@ public class Event {
     public void setEntertainmentCost(){
         if(entertainment.equals("none")){
             entertainmentCost = 0;
+        }else if(entertainment.equals("use system")){
+            entertainmentCost = 100;
         }else if(entertainment.equals("DJ")){
             entertainmentCost = 1000;
         }else if (entertainment.equals("live band")){
@@ -161,8 +163,9 @@ public class Event {
 
     public void setEntertainmentMap(){
         entertainmentMap.put(1, "none" );
-        entertainmentMap.put(2, "DJ" );
-        entertainmentMap.put(3, "live band" );
-        entertainmentMap.put(4, "string quartet" );
+        entertainmentMap.put(2, "use system" );
+        entertainmentMap.put(3, "DJ" );
+        entertainmentMap.put(4, "live band" );
+        entertainmentMap.put(5, "string quartet" );
     }
 }

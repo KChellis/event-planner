@@ -53,7 +53,7 @@ public class App {
                             System.out.println(String.format("%s. Got it!", userEvent.getFood()));
                             System.out.println(String.format("That will cost $%d", userEvent.getFoodCost()));
 
-                            settingGuests = false;
+                            settingFood = false;
                         }else {
                             System.out.println("I'm sorry that is not a valid option");
                         }
@@ -65,7 +65,7 @@ public class App {
                     System.out.println("3. Full Bar: Full access to any drink in the bar, 2 per guest. $25 per guest");
                     System.out.println("4. Beer and Wine Open: Includes the no alcohol package plus a selection of local beers and wines, unlimited. $40 per guest");
                     System.out.println("5. Open bar: Full access to any drink in the bar, unlimited . $50 per guest");
-                    while(settingFood){
+                    while(settingBeverage){
 
                         System.out.println("Please enter the number for the option you would like");
 
@@ -76,11 +76,35 @@ public class App {
                             System.out.println(String.format("%s. Got it!", userEvent.getBeverage()));
                             System.out.println(String.format("That will cost $%d", userEvent.getBeverageCost()));
 
-                            settingGuests = false;
+                            settingBeverage = false;
                         }else {
                             System.out.println("I'm sorry that is not a valid option");
                         }
                     }
+                    boolean settingEntertainment = true;
+                    System.out.println("Finally we have several entertainment options to choose from:");
+                    System.out.println("1. None: No entertainment will be provided, no cost");
+                    System.out.println("2. Use your own music: We have a wonderful sound system and you may use it to play your own music, $100");
+                    System.out.println("3. DJ: Our in house DJ will play songs that will keep your guests on the dance floor,  $1000");
+                    System.out.println("4. Live Band: Our band can play songs from a variety of genres sure to please your guests, $1500");
+                    System.out.println("5. String Quartet: Your guests will be delighted with the beautiful classical music by our award winning string quartet, $2000");
+                    while(settingEntertainment){
+
+                        System.out.println("Please enter the number for the option you would like");
+
+                        int userEntertainmentOption = Integer.parseInt(bufferedReader.readLine());
+                        if(userEntertainmentOption > 0 && userEntertainmentOption < 7){
+                            userEvent.setEntertainment(userEvent.getEntertainmentMap().get(userEntertainmentOption));
+                            userEvent.setEntertainmentCost();
+                            System.out.println(String.format("%s. Got it!", userEvent.getEntertainment()));
+                            System.out.println(String.format("That will cost $%d", userEvent.getEntertainmentCost()));
+
+                            settingEntertainment = false;
+                        }else {
+                            System.out.println("I'm sorry that is not a valid option");
+                        }
+                    }
+
 
 
                 }else if (eventPlanning.equals("n")) {
