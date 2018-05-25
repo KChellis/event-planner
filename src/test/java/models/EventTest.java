@@ -62,6 +62,7 @@ public class EventTest {
         testEvent.setEntertainmentCost();
         assertEquals(1000,  testEvent.getEntertainmentCost());
     }
+
     @Test
     public void setTotalCost_setsTotalCost_6000() {
         Event testEvent = new Event(50,"full dinner", "open bar", "DJ");
@@ -71,5 +72,12 @@ public class EventTest {
         testEvent.setEntertainmentCost();
         testEvent.setTotalCost();
         assertEquals(6000,  testEvent.getTotalCost());
+    }
+
+    @Test
+    public void setFoodMap_addsValuesToFoodMap_false() {
+        Event testEvent = new Event(50,"full dinner", "open bar", "DJ");
+        testEvent.setFoodMap();
+        assertEquals(false, testEvent.getFoodMap().isEmpty());
     }
 }

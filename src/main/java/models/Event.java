@@ -1,5 +1,8 @@
 package models;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Event {
     private int guests;
     private String food;
@@ -10,6 +13,8 @@ public class Event {
     private int beverageCost;
     private int entertainmentCost;
     private int totalCost;
+    private Map<Integer, String> foodMap = new HashMap<Integer, String>();
+
 
     public Event(int guests, String food, String beverage, String entertainment) {
         this.guests = guests;
@@ -108,5 +113,18 @@ public class Event {
 
     public void setTotalCost() {
         totalCost = venueCost + foodCost + beverageCost + entertainmentCost;
+    }
+
+    public Map<Integer, String> getFoodMap() {
+        return foodMap;
+    }
+
+    public void setFoodMap(){
+        foodMap.put(1, "light snacks" );
+        foodMap.put(2, "buffet lunch" );
+        foodMap.put(3, "full lunch" );
+        foodMap.put(4, "buffet dinner" );
+        foodMap.put(5, "full dinner" );
+        foodMap.put(6, "dinner and apps" );
     }
 }
