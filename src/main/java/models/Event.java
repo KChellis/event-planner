@@ -101,4 +101,12 @@ public class Event {
             entertainmentCost = 2000;
         }
     }
+
+    public int getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost() {
+        totalCost = venueCost + foodCost + beverageCost + entertainmentCost;
+    }
 }
