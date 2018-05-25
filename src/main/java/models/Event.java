@@ -96,6 +96,10 @@ public class Event {
         if(beverage.equals("no alcohol")){
             beverageCost = guests * 10;
         }else if (beverage.equals("beer and wine")){
+            beverageCost = guests * 20;
+        }else if (beverage.equals("beer and wine open")){
+            beverageCost = guests * 30;
+        }else if (beverage.equals("full bar")){
             beverageCost = guests * 25;
         }else {
             beverageCost = guests * 50;
@@ -146,7 +150,9 @@ public class Event {
     public void setBeverageMap(){
         beverageMap.put(1, "no alcohol" );
         beverageMap.put(2, "beer and wine" );
-        beverageMap.put(3, "open bar" );
+        beverageMap.put(3, "full bar" );
+        beverageMap.put(4, "beer and wine open" );
+        beverageMap.put(5, "open bar" );
     }
 
     public Map<Integer, String> getEntertainmentMap() {
