@@ -104,11 +104,16 @@ public class App {
                             System.out.println("I'm sorry that is not a valid option");
                         }
                     }
+                    System.out.println("Do you have a coupon code?");
                     System.out.println("Great these are your event details:");
-                    System.out.println(String.format("Guests: %d   venue cost: $%d", userEvent.getGuests(), userEvent.getVenueCost()));
-                    System.out.println(String.format("Food: %s   venue cost: $%d", userEvent.getGuests(), userEvent.getVenueCost()));
-                    System.out.println(String.format("Beverage: %s   venue cost: $%d", userEvent.getGuests(), userEvent.getVenueCost()));
-                    System.out.println(String.format("Entertainment: %s   venue cost: $%d", userEvent.getGuests(), userEvent.getVenueCost()));
+                    System.out.println(String.format("Guests: %d   Venue Cost: $%d", userEvent.getGuests(), userEvent.getVenueCost()));
+                    System.out.println(String.format("Food: %s   Food Cost: $%d", userEvent.getFood(), userEvent.getFoodCost()));
+                    System.out.println(String.format("Beverage: %s   Beverage Cost: $%d", userEvent.getBeverage(), userEvent.getBeverageCost()));
+                    System.out.println(String.format("Entertainment: %s   Entertainment Cost: $%d", userEvent.getEntertainment(), userEvent.getEntertainmentCost()));
+                    System.out.println(String.format("Entertainment: %s   Entertainment Cost: $%d", userEvent.getEntertainment(), userEvent.getEntertainmentCost()));
+
+                    System.out.println(String.format("Total Cost: $%d", userEvent.getTotalCost()));
+
 
                 }else if (eventPlanning.equals("n")) {
                     System.out.println("Okay, thanks for visiting. Goodbye.");
