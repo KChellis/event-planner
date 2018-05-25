@@ -20,4 +20,8 @@ public class Event {
     public String getFood() {
         return food;
     }
+
+    public String getBeverage() {
+        return beverage;
+    }
 }

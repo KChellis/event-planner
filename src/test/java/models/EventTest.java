@@ -22,4 +22,10 @@ public class EventTest {
         Event testEvent = new Event(50,"full dinner", "open bar", "DJ");
         assertEquals("full dinner",  testEvent.getFood());
     }
+
+    @Test
+    public void newEvent_getsBeverage_openbar() {
+        Event testEvent = new Event(50,"full dinner", "open bar", "DJ");
+        assertEquals("open bar",  testEvent.getBeverage());
+    }
 }
