@@ -55,16 +55,16 @@ public class Event {
     }
 
     public void setVenueCost(){
-        if(guests <= 20){
-            venueCost = 200;
-        }else if (guests <= 50){
+        if (guests <= 50){
             venueCost = 500;
         }else if (guests <= 100){
             venueCost = 1000;
         }else if (guests <= 150){
             venueCost = 2000;
-        }else {
+        }else if (guests <= 200){
             venueCost = 3000;
+        }else {
+            venueCost = 4000;
         }
     }
 
@@ -167,5 +167,11 @@ public class Event {
         entertainmentMap.put(3, "DJ" );
         entertainmentMap.put(4, "Live Band" );
         entertainmentMap.put(5, "String Quartet" );
+    }
+
+    public void useCoupon(String couponCode){
+        if(couponCode.equals("20%off")){
+            totalCost *= .8;
+        }
     }
 }

@@ -21,7 +21,7 @@ public class App {
                     System.out.println("Great! I'll just ask you a few questions about what your event.");
                     boolean settingGuests = true;
                     while(settingGuests){
-                        System.out.println("How many guests will attend the event? (max 200)");
+                        System.out.println("How many guests will attend the event? (min 20 max 300)");
                         int userGuests = Integer.parseInt(bufferedReader.readLine());
                         if(userGuests > 0 && userGuests < 200){
                             userEvent.setGuests(userGuests);

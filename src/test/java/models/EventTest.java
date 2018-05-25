@@ -110,4 +110,21 @@ public class EventTest {
         assertEquals(false, testEvent.getEntertainmentMap().isEmpty());
     }
 
+    @Test
+    public void useCoupon_reducesTotalCostBy20Percent_4800() {
+        Event testEvent = new Event();
+        testEvent.setGuests(50);
+        testEvent.setFood("Full Dinner");
+        testEvent.setBeverage("Open Bar");
+        testEvent.setEntertainment("DJ");
+        testEvent.setVenueCost();
+        testEvent.setFoodCost();
+        testEvent.setBeverageCost();
+        testEvent.setEntertainmentCost();
+        testEvent.setTotalCost();
+        testEvent.useCoupon("20%off");
+        assertEquals(4800,  testEvent.getTotalCost());
+    }
+
+
 }
