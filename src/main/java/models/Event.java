@@ -85,4 +85,20 @@ public class Event {
             beverageCost = guests * 50;
         }
     }
+
+    public int getEntertainmentCost() {
+        return entertainmentCost;
+    }
+
+    public void setEntertainmentCost(){
+        if(entertainment.equals("none")){
+            entertainmentCost = 0;
+        }else if(entertainment.equals("DJ")){
+            entertainmentCost = 1000;
+        }else if (entertainment.equals("live band")){
+            entertainmentCost = 1500;
+        }else {
+            entertainmentCost = 2000;
+        }
+    }
 }
