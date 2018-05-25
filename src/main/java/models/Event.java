@@ -52,5 +52,23 @@ public class Event {
         }
     }
 
+    public int getFoodCost() {
+        return foodCost;
+    }
 
+    public void setFoodCost(){
+        if(food.equals("light snacks")){
+            foodCost = guests * 15;
+        }else if (food.equals("buffet lunch")){
+            foodCost = guests * 20;
+        }else if (food.equals("full lunch")){
+            foodCost = guests * 25;
+        }else if (food.equals("buffet dinner")){
+            foodCost = guests * 30;
+        }else if (food.equals("full dinner")) {
+            foodCost = guests * 40;
+        }else {
+            foodCost = guests * 50;
+        }
+    }
 }
