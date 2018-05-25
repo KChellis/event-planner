@@ -138,7 +138,7 @@ public class EventTest {
         testEvent.setBeverageCost();
         testEvent.setEntertainmentCost();
         testEvent.setTotalCost();
-        testEvent.useCoupon("1000off");
+        testEvent.useCoupon("$1000off");
         assertEquals(5000,  testEvent.getTotalCost());
     }
 }

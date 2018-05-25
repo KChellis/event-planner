@@ -12,6 +12,7 @@ public class App {
         wedding.setFood("Full Dinner");
         wedding.setBeverage("Beer and Wine Open");
         wedding.setEntertainment("DJ");
+        wedding.setVenueCost();
         wedding.setFoodCost();
         wedding.setBeverageCost();
         wedding.setEntertainmentCost();
@@ -21,6 +22,7 @@ public class App {
         birthday.setFood("Hors D'oevres");
         birthday.setBeverage("Open Bar");
         birthday.setEntertainment("Use Own Music");
+        birthday.setVenueCost();
         birthday.setFoodCost();
         birthday.setBeverageCost();
         birthday.setEntertainmentCost();
@@ -30,6 +32,7 @@ public class App {
         reunion.setFood("Buffet Dinner");
         reunion.setBeverage("Full bar");
         reunion.setEntertainment("DJ");
+        reunion.setVenueCost();
         reunion.setFoodCost();
         reunion.setBeverageCost();
         reunion.setEntertainmentCost();
@@ -42,7 +45,8 @@ public class App {
             try{
                 System.out.println("Would you like to plan a custom event or choose from one of our preset packages? Enter 'Custom' 'Preset' or 'Exit");
                 String eventPlanning = bufferedReader.readLine().toLowerCase();
-                if (eventPlanning.equals("Custom")){
+                if (eventPlanning.equals("custom")){
+                    chosePackage = true;
                     userEvent.setFoodMap();
                     userEvent.setBeverageMap();
                     userEvent.setEntertainmentMap();
@@ -51,7 +55,7 @@ public class App {
                     while(settingGuests){
                         System.out.println("How many guests will attend the event? (min 20 max 300)");
                         int userGuests = Integer.parseInt(bufferedReader.readLine());
-                        if(userGuests > 0 && userGuests < 200){
+                        if(userGuests >= 20 && userGuests <= 300){
                             userEvent.setGuests(userGuests);
                             userEvent.setVenueCost();
                             System.out.println(String.format("%d guests. Got it!", userGuests));
@@ -133,6 +137,8 @@ public class App {
                         }
                     }
 
+                    userEvent.setTotalCost();
+
 
                 }else if (eventPlanning.equals("preset")) {
                     System.out.println("We offer 3 preset packages:");
@@ -165,12 +171,6 @@ public class App {
                             System.out.println("I'm sorry that is not a valid option");
                         }
                     }
-                    if(chosePackage){
-
-                    }
-
-
-
 
 
                 }else if (eventPlanning.equals("exit")) {
@@ -182,7 +182,7 @@ public class App {
 
                 if(chosePackage){
                     boolean checkingCoupon = true;
-                    String couponCode=null;
+                    String couponCode="no code";
                     while(checkingCoupon){
                         System.out.println("Do you have a coupon code? Y/N");
                         String hasCoupon = bufferedReader.readLine().toLowerCase();
@@ -191,7 +191,7 @@ public class App {
                             while(couponing){
                                 System.out.println("Please enter coupon code or 'back' to continue without entering coupon");
                                 couponCode = bufferedReader.readLine().toLowerCase();
-                                if(couponCode.equals("20%off") || couponCode.equals("1000off") || couponCode.equals("back") ){
+                                if(couponCode.equals("20%off") || couponCode.equals("$1000off") || couponCode.equals("back") ){
                                     couponing = false;
                                     checkingCoupon = false;
                                 }else {
@@ -207,13 +207,12 @@ public class App {
                     }
 
                     System.out.println("Here are your event details:");
-                    System.out.println(String.format("Guests: %d   Venue Cost: $%d", userEvent.getGuests(), userEvent.getVenueCost()));
-                    System.out.println(String.format("Food: %s   Food Cost: $%d", userEvent.getFood(), userEvent.getFoodCost()));
-                    System.out.println(String.format("Beverage: %s   Beverage Cost: $%d", userEvent.getBeverage(), userEvent.getBeverageCost()));
-                    System.out.println(String.format("Entertainment: %s   Entertainment Cost: $%d", userEvent.getEntertainment(), userEvent.getEntertainmentCost()));
-                    System.out.println(String.format("Entertainment: %s   Entertainment Cost: $%d", userEvent.getEntertainment(), userEvent.getEntertainmentCost()));
-                    System.out.println(String.format("Total Cost: $%d", userEvent.getTotalCost()));
-                    if(couponCode.equals("20%off") || couponCode.equals("1000off") ){
+                    System.out.println(String.format("Guests: %d            Venue Cost: $%d", userEvent.getGuests(), userEvent.getVenueCost()));
+                    System.out.println(String.format("Food: %s          Food Cost: $%d", userEvent.getFood(), userEvent.getFoodCost()));
+                    System.out.println(String.format("Beverage: %s          Beverage Cost: $%d", userEvent.getBeverage(), userEvent.getBeverageCost()));
+                    System.out.println(String.format("Entertainment: %s         Entertainment Cost: $%d", userEvent.getEntertainment(), userEvent.getEntertainmentCost()));
+                    System.out.println(String.format("                    Total Cost: $%d", userEvent.getTotalCost()));
+                    if(couponCode.equals("20%off") || couponCode.equals("$1000off") ){
                         System.out.println(String.format("Coupon code: %s", couponCode));
                         userEvent.useCoupon(couponCode);
                         System.out.println(String.format("New Total Cost: $%d", userEvent.getTotalCost()));
@@ -228,6 +227,7 @@ public class App {
                             programRunning = false;
                         }else if (exiting.equals("y")){
                             checkExit = false;
+                            chosePackage = false;
                         }else {
                             System.out.println("Please enter Y or N");
                         }
