@@ -43,17 +43,17 @@ public class App {
         userEvent.setEntertainmentMap();
         boolean programRunning = true;
         boolean chosePackage = false;
-        System.out.println("Hello! Welcome to the Fancy Schmancy Event Planner!");
+        System.out.println("Hello! Welcome to the Fancy Schmancy Event Cost Estimator!");
         while(programRunning) {
             try{
-                System.out.println("Would you like to plan a custom event, choose from one of our preset packages or see a randomly generated event? Enter 'Custom' 'Preset' 'Random' or 'Exit");
+                System.out.println("Would you like to plan a custom event, choose from one of our preset packages or buy a randomly generated event? Enter 'Custom' 'Preset' 'Random' or 'Exit");
                 String eventPlanning = bufferedReader.readLine().toLowerCase();
                 if (eventPlanning.equals("custom")){
                     chosePackage = true;
-                    System.out.println("Great! I'll just ask you a few questions about what your event.");
+                    System.out.println("Great! I'll just ask you a few questions about your event.");
                     boolean settingGuests = true;
                     while(settingGuests){
-                        System.out.println("How many guests will attend the event? (min 20 max 300)");
+                        System.out.println("How many guests will attend the event? (min 20, max 300)");
                         int userGuests = Integer.parseInt(bufferedReader.readLine());
                         if(userGuests >= 20 && userGuests <= 300){
                             userEvent.setGuests(userGuests);
@@ -83,7 +83,7 @@ public class App {
                             userEvent.setFood(userEvent.getFoodMap().get(userFoodOption));
                             userEvent.setFoodCost();
                             System.out.println(String.format("%s. Got it!", userEvent.getFood()));
-                            System.out.println(String.format("That will cost $%d", userEvent.getFoodCost()));
+                            System.out.println(String.format("%s for %d guests will cost $%d", userEvent.getFood(),userEvent.getGuests(), userEvent.getFoodCost()));
 
                             settingFood = false;
                         }else {
@@ -106,7 +106,7 @@ public class App {
                             userEvent.setBeverage(userEvent.getBeverageMap().get(userBeverageOption));
                             userEvent.setBeverageCost();
                             System.out.println(String.format("%s. Got it!", userEvent.getBeverage()));
-                            System.out.println(String.format("That will cost $%d", userEvent.getBeverageCost()));
+                            System.out.println(String.format("%s for %d guests will cost $%d", userEvent.getBeverage(),userEvent.getGuests(), userEvent.getBeverageCost()));
 
                             settingBeverage = false;
                         }else {
@@ -222,11 +222,11 @@ public class App {
                     }
 
                     System.out.println("Here are your event details:");
-                    System.out.println(String.format("Guests: %d            Venue Cost: $%d", userEvent.getGuests(), userEvent.getVenueCost()));
-                    System.out.println(String.format("Food: %s          Food Cost: $%d", userEvent.getFood(), userEvent.getFoodCost()));
-                    System.out.println(String.format("Beverage: %s          Beverage Cost: $%d", userEvent.getBeverage(), userEvent.getBeverageCost()));
-                    System.out.println(String.format("Entertainment: %s         Entertainment Cost: $%d", userEvent.getEntertainment(), userEvent.getEntertainmentCost()));
-                    System.out.println(String.format("                    Total Cost: $%d", userEvent.getTotalCost()));
+                    System.out.println(String.format("Guests: %d Venue Cost: $%d", userEvent.getGuests(), userEvent.getVenueCost()));
+                    System.out.println(String.format("Food: %s Food Cost: $%d", userEvent.getFood(), userEvent.getFoodCost()));
+                    System.out.println(String.format("Beverage: %s Beverage Cost: $%d", userEvent.getBeverage(), userEvent.getBeverageCost()));
+                    System.out.println(String.format("Entertainment: %s Entertainment Cost: $%d", userEvent.getEntertainment(), userEvent.getEntertainmentCost()));
+                    System.out.println(String.format("Total Cost: $%d", userEvent.getTotalCost()));
                     if(couponCode.equals("20%off") || couponCode.equals("$1000off") ){
                         System.out.println(String.format("Coupon code: %s", couponCode));
                         userEvent.useCoupon(couponCode);
