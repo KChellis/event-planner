@@ -174,11 +174,14 @@ public class App {
 
 
                 }else if (eventPlanning.equals("random")) {
-
-                    userEvent.setGuests(100);
-                    userEvent.setFood("Buffet Dinner");
-                    userEvent.setBeverage("Full bar");
-                    userEvent.setEntertainment("DJ");
+                    chosePackage = true;
+                    userEvent.setGuests(userEvent.generateNumber(20,300));
+                    Integer userFood = userEvent.generateNumber(1,6);
+                    userEvent.setFood(userEvent.getFoodMap().get(userFood));
+                    Integer userBeverage = userEvent.generateNumber(1,5);
+                    userEvent.setBeverage(userEvent.getBeverageMap().get(userBeverage));
+                    Integer userEntertainment = userEvent.generateNumber(1,5);
+                    userEvent.setEntertainment(userEvent.getEntertainmentMap().get(userEntertainment));
                     userEvent.setVenueCost();
                     userEvent.setFoodCost();
                     userEvent.setBeverageCost();
