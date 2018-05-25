@@ -36,12 +36,12 @@ public class App {
                     }
                     boolean settingFood = true;
                     System.out.println("Next tell me what kind of food you would like. We have a number of catering options to choose from:");
-                    System.out.println("1. Light Snacks: A sampling of delicious Hors D'oeuvres. $15 per guest");
+                    System.out.println("1. Hor D'oevres: A sampling of delicious Hors D'oeuvres. $15 per guest");
                     System.out.println("2. Buffet Lunch: A simple salad soup and sandwich bar. $20 per guest");
                     System.out.println("3. Full Lunch: A nice sit down pasta lunch with Chicken, Shrimp or Vegetarian options . $25 per guest");
                     System.out.println("4. Buffet Dinner: A simple buffet with fish an chicken entree options and various seasonal sides . $30 per guest");
                     System.out.println("5. Full Dinner: A nice sit down dinner with Beef Wellington, Honey Garlic Salmon, or Ratatouille options . $40 per guest");
-                    System.out.println("6. Dinner and Apps: Our delicious Hors D'oeuvres served with full dinner later $50 per guest");
+                    System.out.println("6. Dinner and Hor D'oevres: Our delicious Hors D'oeuvres served with full dinner after $50 per guest");
                     while(settingFood){
 
                         System.out.println("Please enter the number for the option you would like");
@@ -104,8 +104,11 @@ public class App {
                             System.out.println("I'm sorry that is not a valid option");
                         }
                     }
-
-
+                    System.out.println("Great these are your event details:");
+                    System.out.println(String.format("Guests: %d   venue cost: $%d", userEvent.getGuests(), userEvent.getVenueCost()));
+                    System.out.println(String.format("Food: %s   venue cost: $%d", userEvent.getGuests(), userEvent.getVenueCost()));
+                    System.out.println(String.format("Beverage: %s   venue cost: $%d", userEvent.getGuests(), userEvent.getVenueCost()));
+                    System.out.println(String.format("Entertainment: %s   venue cost: $%d", userEvent.getGuests(), userEvent.getVenueCost()));
 
                 }else if (eventPlanning.equals("n")) {
                     System.out.println("Okay, thanks for visiting. Goodbye.");

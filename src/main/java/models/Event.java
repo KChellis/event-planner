@@ -73,15 +73,15 @@ public class Event {
     }
 
     public void setFoodCost(){
-        if(food.equals("light snacks")){
+        if(food.equals("Hor D'oevres")){
             foodCost = guests * 15;
-        }else if (food.equals("buffet lunch")){
+        }else if (food.equals("Buffet Lunch")){
             foodCost = guests * 20;
-        }else if (food.equals("full lunch")){
+        }else if (food.equals("Full Lunch")){
             foodCost = guests * 25;
-        }else if (food.equals("buffet dinner")){
+        }else if (food.equals("Buffet Dinner")){
             foodCost = guests * 30;
-        }else if (food.equals("full dinner")) {
+        }else if (food.equals("Full Dinner")) {
             foodCost = guests * 40;
         }else {
             foodCost = guests * 50;
@@ -93,13 +93,13 @@ public class Event {
     }
 
     public void setBeverageCost(){
-        if(beverage.equals("no alcohol")){
+        if(beverage.equals("No Alcohol")){
             beverageCost = guests * 10;
-        }else if (beverage.equals("beer and wine")){
+        }else if (beverage.equals("Beer and Wine")){
             beverageCost = guests * 20;
-        }else if (beverage.equals("beer and wine open")){
+        }else if (beverage.equals("Beer and Wine Open")){
             beverageCost = guests * 30;
-        }else if (beverage.equals("full bar")){
+        }else if (beverage.equals("Full Bar")){
             beverageCost = guests * 25;
         }else {
             beverageCost = guests * 50;
@@ -111,13 +111,13 @@ public class Event {
     }
 
     public void setEntertainmentCost(){
-        if(entertainment.equals("none")){
+        if(entertainment.equals("None")){
             entertainmentCost = 0;
-        }else if(entertainment.equals("use system")){
+        }else if(entertainment.equals("Use Own Music")){
             entertainmentCost = 100;
         }else if(entertainment.equals("DJ")){
             entertainmentCost = 1000;
-        }else if (entertainment.equals("live band")){
+        }else if (entertainment.equals("Live Band")){
             entertainmentCost = 1500;
         }else {
             entertainmentCost = 2000;
@@ -137,12 +137,12 @@ public class Event {
     }
 
     public void setFoodMap(){
-        foodMap.put(1, "light snacks" );
-        foodMap.put(2, "buffet lunch" );
-        foodMap.put(3, "full lunch" );
-        foodMap.put(4, "buffet dinner" );
-        foodMap.put(5, "full dinner" );
-        foodMap.put(6, "dinner and apps" );
+        foodMap.put(1, "Hor D'oevres" );
+        foodMap.put(2, "Buffet Lunch" );
+        foodMap.put(3, "Full Lunch" );
+        foodMap.put(4, "Buffet Dinner" );
+        foodMap.put(5, "Full Dinner" );
+        foodMap.put(6, "Dinner and Hor D'oevres" );
     }
 
     public Map<Integer, String> getBeverageMap() {
@@ -150,11 +150,11 @@ public class Event {
     }
 
     public void setBeverageMap(){
-        beverageMap.put(1, "no alcohol" );
-        beverageMap.put(2, "beer and wine" );
-        beverageMap.put(3, "full bar" );
-        beverageMap.put(4, "beer and wine open" );
-        beverageMap.put(5, "open bar" );
+        beverageMap.put(1, "No Alcohol" );
+        beverageMap.put(2, "Beer and Wine" );
+        beverageMap.put(3, "Full Bar" );
+        beverageMap.put(4, "Beer and Wine Open" );
+        beverageMap.put(5, "Open Bar" );
     }
 
     public Map<Integer, String> getEntertainmentMap() {
@@ -162,10 +162,10 @@ public class Event {
     }
 
     public void setEntertainmentMap(){
-        entertainmentMap.put(1, "none" );
-        entertainmentMap.put(2, "use system" );
+        entertainmentMap.put(1, "None" );
+        entertainmentMap.put(2, "Use Own Music" );
         entertainmentMap.put(3, "DJ" );
-        entertainmentMap.put(4, "live band" );
-        entertainmentMap.put(5, "string quartet" );
+        entertainmentMap.put(4, "Live Band" );
+        entertainmentMap.put(5, "String Quartet" );
     }
 }
