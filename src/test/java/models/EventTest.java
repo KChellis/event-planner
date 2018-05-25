@@ -126,5 +126,19 @@ public class EventTest {
         assertEquals(4800,  testEvent.getTotalCost());
     }
 
-
+    @Test
+    public void useCoupon_reducesTotalCostBy1000_5000() {
+        Event testEvent = new Event();
+        testEvent.setGuests(50);
+        testEvent.setFood("Full Dinner");
+        testEvent.setBeverage("Open Bar");
+        testEvent.setEntertainment("DJ");
+        testEvent.setVenueCost();
+        testEvent.setFoodCost();
+        testEvent.setBeverageCost();
+        testEvent.setEntertainmentCost();
+        testEvent.setTotalCost();
+        testEvent.useCoupon("1000off");
+        assertEquals(5000,  testEvent.getTotalCost());
+    }
 }

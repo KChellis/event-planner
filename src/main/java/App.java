@@ -84,7 +84,7 @@ public class App {
                     boolean settingEntertainment = true;
                     System.out.println("Finally we have several entertainment options to choose from:");
                     System.out.println("1. None: No entertainment will be provided, no cost");
-                    System.out.println("2. Use your own music: We have a wonderful sound system and you may use it to play your own music, $100");
+                    System.out.println("2. Use your own music: We have a wonderful sound system that you may use to play your own music, $100");
                     System.out.println("3. DJ: Our in house DJ will play songs that will keep your guests on the dance floor,  $1000");
                     System.out.println("4. Live Band: Our band can play songs from a variety of genres sure to please your guests, $1500");
                     System.out.println("5. String Quartet: Your guests will be delighted with the beautiful classical music by our award winning string quartet, $2000");
@@ -104,15 +104,59 @@ public class App {
                             System.out.println("I'm sorry that is not a valid option");
                         }
                     }
-                    System.out.println("Do you have a coupon code?");
-                    System.out.println("Great these are your event details:");
+                    boolean checkingCoupon = true;
+                    String couponCode=null;
+                    while(checkingCoupon){
+                        System.out.println("Do you have a coupon code? Y/N");
+                        String hasCoupon = bufferedReader.readLine().toLowerCase();
+                        if (hasCoupon.equals("y")){
+                            boolean couponing = true;
+                            while(couponing){
+                                System.out.println("Please enter coupon code or 'back' to continue without enter coupon");
+                                couponCode = bufferedReader.readLine().toLowerCase();
+                                if(couponCode.equals("20%off") || couponCode.equals("1000off") || couponCode.equals("back") ){
+                                    couponing = false;
+                                    checkingCoupon = false;
+                                }else {
+                                    System.out.println("That is not a valid code");
+                                }
+                            }
+
+                        }else if (hasCoupon.equals("n")){
+                            checkingCoupon = false;
+                        }else{
+                            System.out.println("Please enter Y or N");
+                        }
+                    }
+
+                    System.out.println("Here are your event details:");
                     System.out.println(String.format("Guests: %d   Venue Cost: $%d", userEvent.getGuests(), userEvent.getVenueCost()));
                     System.out.println(String.format("Food: %s   Food Cost: $%d", userEvent.getFood(), userEvent.getFoodCost()));
                     System.out.println(String.format("Beverage: %s   Beverage Cost: $%d", userEvent.getBeverage(), userEvent.getBeverageCost()));
                     System.out.println(String.format("Entertainment: %s   Entertainment Cost: $%d", userEvent.getEntertainment(), userEvent.getEntertainmentCost()));
                     System.out.println(String.format("Entertainment: %s   Entertainment Cost: $%d", userEvent.getEntertainment(), userEvent.getEntertainmentCost()));
-
                     System.out.println(String.format("Total Cost: $%d", userEvent.getTotalCost()));
+                    if(couponCode.equals("20%off") || couponCode.equals("1000off") ){
+                        System.out.println(String.format("Coupon code: %s", couponCode));
+                        userEvent.useCoupon(couponCode);
+                        System.out.println(String.format("New Total Cost: $%d", userEvent.getTotalCost()));
+                    }
+                    boolean checkExit = true;
+                    while(checkExit){
+                        System.out.println("Would you like to plan another event? Y/N");
+                        String exiting = bufferedReader.readLine().toLowerCase();
+                        if(exiting.equals("n")){
+                            System.out.println("Thanks for planning your event with us! Goodbye.");
+                            checkExit = false;
+                            programRunning = false;
+                        }else if (exiting.equals("y")){
+                            checkExit = false;
+                        }else {
+                            System.out.println("Please enter Y or N");
+                        }
+                    }
+
+
 
 
                 }else if (eventPlanning.equals("n")) {

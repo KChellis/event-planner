@@ -172,6 +172,8 @@ public class Event {
     public void useCoupon(String couponCode){
         if(couponCode.equals("20%off")){
             totalCost *= .8;
+        }else {
+            totalCost -= 1000;
         }
     }
 }
