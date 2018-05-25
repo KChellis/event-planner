@@ -34,4 +34,13 @@ public class EventTest {
         Event testEvent = new Event(50,"full dinner", "open bar", "DJ");
         assertEquals("DJ",  testEvent.getEntertainment());
     }
+
+    @Test
+    public void setVenueCost_setsVenueCost_500() {
+        Event testEvent = new Event(50,"full dinner", "open bar", "DJ");
+        testEvent.setVenueCost();
+        assertEquals(500,  testEvent.getVenueCost());
+    }
+
+
 }
