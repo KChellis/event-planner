@@ -33,14 +33,16 @@ public class EventTest {
     }
 
     @Test
-    public void newEvent_getsEntertainment_DJ() {
+    public void setEntertainment_getsEntertainment_DJ() {
         Event testEvent = new Event();
+        testEvent.setEntertainment("DJ");
         assertEquals("DJ",  testEvent.getEntertainment());
     }
 
     @Test
     public void setVenueCost_setsVenueCost_500() {
         Event testEvent = new Event();
+        testEvent.setGuests(50);
         testEvent.setVenueCost();
         assertEquals(500,  testEvent.getVenueCost());
     }
@@ -48,6 +50,8 @@ public class EventTest {
     @Test
     public void setFoodCost_setsFoodCost_2000() {
         Event testEvent = new Event();
+        testEvent.setGuests(50);
+        testEvent.setFood("full dinner");
         testEvent.setFoodCost();
         assertEquals(2000,  testEvent.getFoodCost());
     }
@@ -55,6 +59,8 @@ public class EventTest {
     @Test
     public void setBeverageCost_setsBeverageCost_2500() {
         Event testEvent = new Event();
+        testEvent.setGuests(50);
+        testEvent.setBeverage("open bar");
         testEvent.setBeverageCost();
         assertEquals(2500,  testEvent.getBeverageCost());
     }
@@ -62,6 +68,8 @@ public class EventTest {
     @Test
     public void setEntertainmentCost_setsEntertainmentCost_1000() {
         Event testEvent = new Event();
+        testEvent.setGuests(50);
+        testEvent.setEntertainment("DJ");
         testEvent.setEntertainmentCost();
         assertEquals(1000,  testEvent.getEntertainmentCost());
     }
@@ -69,6 +77,10 @@ public class EventTest {
     @Test
     public void setTotalCost_setsTotalCost_6000() {
         Event testEvent = new Event();
+        testEvent.setGuests(50);
+        testEvent.setFood("full dinner");
+        testEvent.setBeverage("open bar");
+        testEvent.setEntertainment("DJ");
         testEvent.setVenueCost();
         testEvent.setFoodCost();
         testEvent.setBeverageCost();

@@ -46,6 +46,10 @@ public class Event {
         return entertainment;
     }
 
+    public void setEntertainment(String entertainment) {
+        this.entertainment = entertainment;
+    }
+
     public int getVenueCost() {
         return venueCost;
     }
